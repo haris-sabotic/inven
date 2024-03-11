@@ -26,7 +26,8 @@
                 android:paddingBottom="30dp"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/register_one_text_title">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
                     android:id="@+id/register_one_form_text_title"
