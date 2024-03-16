@@ -86,7 +86,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="5dp"
-                            android:background="@color/accent_company"
+                            android:background="@color/theme_1"
                             app:layout_constraintBottom_toBottomOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -136,7 +136,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="5dp"
-                            android:background="@color/accent_individual"
+                            android:background="@color/theme_3"
                             app:layout_constraintBottom_toBottomOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

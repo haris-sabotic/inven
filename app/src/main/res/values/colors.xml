@@ -10,4 +10,9 @@
     <color name="black_alpha_70">#B3000000</color>
     <color name="accent_company">#66BB6A</color>
     <color name="accent_individual">#42A5F6</color>
+    <color name="theme_1">#c2c2ff</color>
+    <color name="theme_2">#8892b3</color>
+    <color name="theme_3">#d6c2ff</color>
+    <color name="theme_4">#c2ffff</color>
+    <color name="theme_5">#88b3b3</color>
 </resources>
