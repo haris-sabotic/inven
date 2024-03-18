@@ -1,6 +1,6 @@
-package com.ets.inven.ui.profile
+package com.ets.inven.ui.profile_individual
 
 import androidx.lifecycle.ViewModel
 
-class ProfileViewModel : ViewModel() {
+class ProfileIndividualViewModel : ViewModel() {
 }

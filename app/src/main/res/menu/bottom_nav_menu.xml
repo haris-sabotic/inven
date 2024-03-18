@@ -7,7 +7,7 @@
         android:title="Jobs" />
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_profile_individual"
         android:icon="@drawable/baseline_account_circle_24"
         android:title="Profile" />
 

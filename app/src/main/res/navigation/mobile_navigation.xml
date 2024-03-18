@@ -66,13 +66,13 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_jobs"
-        android:name="com.ets.inven.ui.jobs.JobsFragment"
+        android:id="@+id/navigation_ads_individual"
+        android:name="com.ets.inven.ui.ads_individual.AdsIndividualFragment"
         tools:layout="@layout/fragment_jobs" />
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.ets.inven.ui.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        android:id="@+id/navigation_profile_individual"
+        android:name="com.ets.inven.ui.profile_individual.ProfileIndividualFragment"
+        tools:layout="@layout/fragment_profile_individual" />
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.ets.inven.ui.profile
+package com.ets.inven.ui.profile_individual
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.ets.inven.databinding.FragmentProfileBinding
+import com.ets.inven.databinding.FragmentProfileIndividualBinding
 
-class ProfileFragment : Fragment() {
-    private val viewModel: ProfileViewModel by activityViewModels()
+class ProfileIndividualFragment : Fragment() {
+    private val viewModel: ProfileIndividualViewModel by activityViewModels()
 
-    private var _binding: FragmentProfileBinding? = null
+    private var _binding: FragmentProfileIndividualBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,7 +22,7 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileIndividualBinding.inflate(inflater, container, false)
 
         return binding.root
     }
