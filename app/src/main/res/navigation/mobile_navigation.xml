@@ -28,8 +28,8 @@
             app:popUpTo="@id/navigation_login"
             />
         <action
-            android:id="@+id/action_login_to_jobs"
-            app:destination="@id/navigation_jobs"
+            android:id="@+id/action_login_to_ads_individual"
+            app:destination="@id/navigation_ads_individual"
             app:popUpToInclusive="true"
             app:popUpTo="@id/navigation_login"
             />
@@ -58,8 +58,8 @@
         android:name="com.ets.inven.ui.auth.RegisterTwoFragment"
         tools:layout="@layout/fragment_register_two">
         <action
-            android:id="@+id/action_register_two_to_jobs"
-            app:destination="@id/navigation_jobs"
+            android:id="@+id/action_register_two_to_ads_individual"
+            app:destination="@id/navigation_ads_individual"
             app:popUpToInclusive="true"
             app:popUpTo="@id/navigation_register_two"
             />
@@ -68,7 +68,7 @@
     <fragment
         android:id="@+id/navigation_ads_individual"
         android:name="com.ets.inven.ui.ads_individual.AdsIndividualFragment"
-        tools:layout="@layout/fragment_jobs" />
+        tools:layout="@layout/fragment_ads_individual" />
 
     <fragment
         android:id="@+id/navigation_profile_individual"

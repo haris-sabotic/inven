@@ -33,7 +33,7 @@ class RegisterTwoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.registerTwoFormButtonRegister.setOnClickListener {
-            findNavController().navigate(R.id.action_register_two_to_jobs)
+            findNavController().navigate(R.id.action_register_two_to_ads_individual)
         }
     }
 

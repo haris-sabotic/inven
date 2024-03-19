@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_jobs"
+        android:id="@+id/navigation_ads_individual"
         android:icon="@drawable/baseline_article_24"
-        android:title="Jobs" />
+        android:title="Ads" />
 
     <item
         android:id="@+id/navigation_profile_individual"
