@@ -6,21 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.ets.inven.R
 import com.ets.inven.models.AdModel
 import com.ets.inven.util.shorten
 
 class AdsIndividualRecyclerViewAdapter (
     private val context: Context,
-    private val dataset: ArrayList<AdModel>
+    private val dataset: ArrayList<AdModel>,
+    private val onClickAction: (AdModel) -> Unit
 ) : RecyclerView.Adapter<AdsIndividualRecyclerViewAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val root: ConstraintLayout
         val photo: ImageView
         val textName: TextView
         val textDescription: TextView
 
         init {
+            root = view.findViewById(R.id.item_ad_root)
             photo = view.findViewById(R.id.item_ad_image)
             textName = view.findViewById(R.id.item_ad_text_name)
             textDescription = view.findViewById(R.id.item_ad_text_description)
@@ -39,6 +44,15 @@ class AdsIndividualRecyclerViewAdapter (
 
         viewHolder.textName.text = ad.name
         viewHolder.textDescription.text = ad.description.shorten(105)
+
+        Glide.with(context)
+            .load(ad.photo)
+            .centerCrop()
+            .into(viewHolder.photo)
+
+        viewHolder.root.setOnClickListener {
+            onClickAction(ad)
+        }
     }
 
     override fun getItemCount() = dataset.size

@@ -3,40 +3,34 @@ package com.ets.inven.models
 import android.os.Parcel
 import android.os.Parcelable
 
-data class AdModel(
+data class CompanyModel(
     val name: String,
     val description: String,
-    val freePositions: Int,
-    val photo: String,
-    val company: CompanyModel
+    val photo: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readInt(),
-        parcel.readString()!!,
-        parcel.readParcelable(CompanyModel::class.java.classLoader)!!
+        parcel.readString()!!
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
         parcel.writeString(description)
-        parcel.writeInt(freePositions)
         parcel.writeString(photo)
-        parcel.writeParcelable(company, flags)
     }
 
     override fun describeContents(): Int {
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<AdModel> {
-        override fun createFromParcel(parcel: Parcel): AdModel {
-            return AdModel(parcel)
+    companion object CREATOR : Parcelable.Creator<CompanyModel> {
+        override fun createFromParcel(parcel: Parcel): CompanyModel {
+            return CompanyModel(parcel)
         }
 
-        override fun newArray(size: Int): Array<AdModel?> {
+        override fun newArray(size: Int): Array<CompanyModel?> {
             return arrayOfNulls(size)
         }
     }

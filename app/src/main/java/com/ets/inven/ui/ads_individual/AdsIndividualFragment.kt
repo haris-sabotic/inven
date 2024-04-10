@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ets.inven.databinding.FragmentAdsIndividualBinding
 import com.ets.inven.util.GlobalData
@@ -33,7 +34,12 @@ class AdsIndividualFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.adsIndividualRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        binding.adsIndividualRecyclerview.adapter = AdsIndividualRecyclerViewAdapter(requireContext(), GlobalData.PLACEHOLDER_ADS)
+        binding.adsIndividualRecyclerview.adapter = AdsIndividualRecyclerViewAdapter(requireContext(), GlobalData.PLACEHOLDER_ADS) { adModel ->
+            val action = AdsIndividualFragmentDirections
+                .actionAdsIndividualToAdDetailsIndividual(adModel)
+
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

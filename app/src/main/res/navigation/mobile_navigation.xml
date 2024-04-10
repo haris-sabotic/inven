@@ -68,11 +68,36 @@
     <fragment
         android:id="@+id/navigation_ads_individual"
         android:name="com.ets.inven.ui.ads_individual.AdsIndividualFragment"
-        tools:layout="@layout/fragment_ads_individual" />
+        tools:layout="@layout/fragment_ads_individual">
+        <action
+            android:id="@+id/action_ads_individual_to_ad_details_individual"
+            app:destination="@id/navigation_ad_details_individual" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile_individual"
         android:name="com.ets.inven.ui.profile_individual.ProfileIndividualFragment"
         tools:layout="@layout/fragment_profile_individual" />
+
+    <fragment
+        android:id="@+id/navigation_ad_details_individual"
+        android:name="com.ets.inven.ui.ad_details_individual.AdDetailsIndividualFragment"
+        tools:layout="@layout/fragment_ad_details_individual">
+        <argument
+            android:name="adData"
+            app:argType="com.ets.inven.models.AdModel" />
+        <action
+            android:id="@+id/action_ad_details_individual_to_company_details_individual"
+            app:destination="@id/navigation_company_details_individual" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_company_details_individual"
+        android:name="com.ets.inven.ui.company_details_individual.CompanyDetailsIndividualFragment"
+        tools:layout="@layout/fragment_company_details_individual">
+        <argument
+            android:name="companyData"
+            app:argType="com.ets.inven.models.CompanyModel" />
+    </fragment>
 
 </navigation>

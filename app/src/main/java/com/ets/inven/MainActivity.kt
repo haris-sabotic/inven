@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_splash,
                 R.id.navigation_login,
                 R.id.navigation_register_one,
-                R.id.navigation_register_two -> {
+                R.id.navigation_register_two,
+                R.id.navigation_ad_details_individual,
+                R.id.navigation_company_details_individual,
+                -> {
                     navView.visibility = View.GONE
                 }
 

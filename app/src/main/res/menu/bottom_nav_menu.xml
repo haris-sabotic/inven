@@ -4,11 +4,11 @@
     <item
         android:id="@+id/navigation_ads_individual"
         android:icon="@drawable/baseline_article_24"
-        android:title="Ads" />
+        android:title="Oglasi" />
 
     <item
         android:id="@+id/navigation_profile_individual"
         android:icon="@drawable/baseline_account_circle_24"
-        android:title="Profile" />
+        android:title="Profil" />
 
 </menu>
