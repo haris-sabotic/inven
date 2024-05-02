@@ -1,4 +1,4 @@
-package com.ets.inven.ui.ad_details_individual
+package com.ets.inven.ui.individual.ad_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,8 +45,10 @@ class AdDetailsIndividualFragment : Fragment() {
             .into(binding.adDetailsIndividualImage)
 
         binding.adDetailsIndividualInfoTextCompany.setOnClickListener {
-            val action = AdDetailsIndividualFragmentDirections
-                .actionAdDetailsIndividualToCompanyDetailsIndividual(ad.company)
+            val action =
+                AdDetailsIndividualFragmentDirections.actionAdDetailsIndividualToCompanyDetailsIndividual(
+                    ad.company
+                )
             
             findNavController().navigate(action)
         }

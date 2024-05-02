@@ -1,4 +1,4 @@
-package com.ets.inven.ui.ads_individual
+package com.ets.inven.ui.individual.ads
 
 import androidx.lifecycle.ViewModel
 

@@ -1,17 +1,14 @@
-package com.ets.inven.ui.profile_individual
+package com.ets.inven.ui.company.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import com.ets.inven.databinding.FragmentProfileIndividualBinding
+import com.ets.inven.databinding.FragmentProfileCompanyBinding
 
-class ProfileIndividualFragment : Fragment() {
-    private val viewModel: ProfileIndividualViewModel by activityViewModels()
-
-    private var _binding: FragmentProfileIndividualBinding? = null
+class ProfileCompanyFragment : Fragment() {
+    private var _binding: FragmentProfileCompanyBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,13 +19,14 @@ class ProfileIndividualFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentProfileIndividualBinding.inflate(inflater, container, false)
+        _binding = FragmentProfileCompanyBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
 
     override fun onDestroyView() {

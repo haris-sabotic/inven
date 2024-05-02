@@ -5,14 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.ets.inven.R
 import com.ets.inven.databinding.FragmentRegisterOneBinding
 
 class RegisterOneFragment : Fragment() {
-    private val viewModel: AuthViewModel by activityViewModels()
-
     private var _binding: FragmentRegisterOneBinding? = null
 
     // This property is only valid between onCreateView and
@@ -37,10 +34,12 @@ class RegisterOneFragment : Fragment() {
         }
 
         binding.registerOneFormCardviewCompany.setOnClickListener {
-            findNavController().navigate(R.id.action_register_one_to_register_two)
+            val action = RegisterOneFragmentDirections.actionRegisterOneToRegisterTwo("company")
+            findNavController().navigate(action)
         }
         binding.registerOneFormCardviewIndividual.setOnClickListener {
-            findNavController().navigate(R.id.action_register_one_to_register_two)
+            val action = RegisterOneFragmentDirections.actionRegisterOneToRegisterTwo("individual")
+            findNavController().navigate(action)
         }
     }
 

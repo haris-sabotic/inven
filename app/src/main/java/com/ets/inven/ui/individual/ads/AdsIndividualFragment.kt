@@ -1,4 +1,4 @@
-package com.ets.inven.ui.ads_individual
+package com.ets.inven.ui.individual.ads
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,8 +35,7 @@ class AdsIndividualFragment : Fragment() {
 
         binding.adsIndividualRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.adsIndividualRecyclerview.adapter = AdsIndividualRecyclerViewAdapter(requireContext(), GlobalData.PLACEHOLDER_ADS) { adModel ->
-            val action = AdsIndividualFragmentDirections
-                .actionAdsIndividualToAdDetailsIndividual(adModel)
+            val action = AdsIndividualFragmentDirections.actionAdsIndividualToAdDetailsIndividual(adModel)
 
             findNavController().navigate(action)
         }

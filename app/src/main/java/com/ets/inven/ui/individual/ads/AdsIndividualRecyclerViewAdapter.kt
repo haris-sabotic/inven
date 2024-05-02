@@ -1,4 +1,4 @@
-package com.ets.inven.ui.ads_individual
+package com.ets.inven.ui.individual.ads
 
 import android.content.Context
 import android.view.LayoutInflater

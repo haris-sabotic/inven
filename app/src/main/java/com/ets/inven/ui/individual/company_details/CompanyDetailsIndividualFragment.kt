@@ -1,4 +1,4 @@
-package com.ets.inven.ui.company_details_individual
+package com.ets.inven.ui.individual.company_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
