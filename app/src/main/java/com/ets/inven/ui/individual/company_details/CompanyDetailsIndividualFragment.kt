@@ -34,7 +34,7 @@ class CompanyDetailsIndividualFragment : Fragment() {
         val company = args.companyData
 
         binding.companyDetailsIndividualTextTitle.text = company.name
-        binding.companyDetailsIndividualTextAbout.text = company.description
+        binding.companyDetailsIndividualTextAbout.text = company.about
 
         Glide.with(requireContext())
             .load(company.photo)

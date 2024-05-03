@@ -48,7 +48,7 @@ class UserViewModel : ViewModel() {
     )
 
     fun loadUserData(token: String) {
-        Api.service.user(token).enqueue(object : Callback<UserModel> {
+        Api.service.user("Bearer $token").enqueue(object : Callback<UserModel> {
             override fun onResponse(call: Call<UserModel>, response: Response<UserModel>) {
                 if (response.isSuccessful) {
                     _userData.postValue(response.body()!!)
@@ -105,7 +105,7 @@ class UserViewModel : ViewModel() {
     }
 
     fun editPhoto(token: String, photo: MultipartBody.Part) {
-        Api.service.editUserPhoto(token, photo).enqueue(object : Callback<EditResponse> {
+        Api.service.editUserPhoto("Bearer $token", photo).enqueue(object : Callback<EditResponse> {
             override fun onResponse(call: Call<EditResponse>, response: Response<EditResponse>) {
                 if (response.isSuccessful) {
                     _userData.postValue(response.body()!!.new_user)
@@ -122,7 +122,7 @@ class UserViewModel : ViewModel() {
     }
 
     fun editCV(token: String, cv: MultipartBody.Part) {
-        Api.service.editUserCV(token, cv).enqueue(object : Callback<EditResponse> {
+        Api.service.editUserCV("Bearer $token", cv).enqueue(object : Callback<EditResponse> {
             override fun onResponse(call: Call<EditResponse>, response: Response<EditResponse>) {
                 if (response.isSuccessful) {
                     _userData.postValue(response.body()!!.new_user)
@@ -139,7 +139,7 @@ class UserViewModel : ViewModel() {
     }
 
     fun edit(token: String, editUserRequest: EditUserRequest) {
-        Api.service.editUser(token, editUserRequest).enqueue(object : Callback<EditResponse> {
+        Api.service.editUser("Bearer $token", editUserRequest).enqueue(object : Callback<EditResponse> {
             override fun onResponse(call: Call<EditResponse>, response: Response<EditResponse>) {
                 if (response.isSuccessful) {
                     _userData.postValue(response.body()!!.new_user)

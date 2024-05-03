@@ -11,12 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ets.inven.R
 import com.ets.inven.models.AdModel
+import com.ets.inven.models.AdPreviewModel
 import com.ets.inven.util.shorten
 
 class AdsIndividualRecyclerViewAdapter (
     private val context: Context,
-    private val dataset: ArrayList<AdModel>,
-    private val onClickAction: (AdModel) -> Unit
+    private val dataset: ArrayList<AdPreviewModel>,
+    private val onClickAction: (AdPreviewModel) -> Unit
 ) : RecyclerView.Adapter<AdsIndividualRecyclerViewAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val root: ConstraintLayout

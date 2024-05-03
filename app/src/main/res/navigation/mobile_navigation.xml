@@ -108,8 +108,8 @@
         android:name="com.ets.inven.ui.individual.ad_details.AdDetailsIndividualFragment"
         tools:layout="@layout/fragment_ad_details_individual">
         <argument
-            android:name="adData"
-            app:argType="com.ets.inven.models.AdModel" />
+            android:name="adId"
+            app:argType="integer" />
         <action
             android:id="@+id/action_ad_details_individual_to_company_details_individual"
             app:destination="@id/navigation_company_details_individual" />

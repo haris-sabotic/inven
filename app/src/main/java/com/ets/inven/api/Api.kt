@@ -6,6 +6,8 @@ import com.ets.inven.api.requests.RegisterRequest
 import com.ets.inven.api.responses.EditResponse
 import com.ets.inven.api.responses.LoginResponse
 import com.ets.inven.api.responses.RegisterResponse
+import com.ets.inven.models.AdModel
+import com.ets.inven.models.AdPreviewModel
 import com.ets.inven.models.UserModel
 import com.ets.inven.util.GlobalData
 import okhttp3.Interceptor
@@ -23,6 +25,8 @@ import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 object Api {
@@ -77,4 +81,10 @@ interface ApiInterface {
 
     @POST("user/edit")
     fun editUser(@Header("Authorization") token: String, @Body body: EditUserRequest): Call<EditResponse>
+
+    @GET("ads")
+    fun allAds(@Query("types") type: String?): Call<ArrayList<AdPreviewModel>>
+
+    @GET("ads/{id}")
+    fun singleAd(@Path("id") adId: Int): Call<AdModel>
 }

@@ -6,7 +6,7 @@ import com.ets.inven.models.CompanyModel
 
 object GlobalData {
     val COMPANIES = arrayListOf<CompanyModel>(
-        CompanyModel("VOLI d.o.o.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", "http://84.247.177.105/voli.png"),
+        CompanyModel("VOLI d.o.o.", "voli@voli.me", "067 111 111", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", "http://84.247.177.105/voli.png"),
     )
 
     val PLACEHOLDER_ADS = arrayListOf<AdModel>(
@@ -32,7 +32,7 @@ object GlobalData {
         if (value == null) {
             editor.remove("token")
         } else {
-            editor.putString("token", "Bearer $value")
+            editor.putString("token", value)
         }
         editor.apply()
     }
