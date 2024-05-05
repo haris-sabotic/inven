@@ -59,6 +59,7 @@ class SplashFragment : Fragment() {
 
         userViewModel.errorMessage.observe(viewLifecycleOwner) {
             Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_splash_to_login)
         }
     }
 
