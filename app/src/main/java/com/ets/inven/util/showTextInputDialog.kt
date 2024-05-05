@@ -2,6 +2,7 @@ package com.ets.inven.util
 
 import android.app.AlertDialog
 import android.content.Context
+import android.view.Gravity
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -18,6 +19,7 @@ fun showTextInputDialog(context: Context, title: String, inputType: Int, lineCou
     if (lineCount != null) {
         input.setLines(lineCount)
         input.inputType = EditorInfo.TYPE_TEXT_FLAG_MULTI_LINE or inputType
+        input.gravity = Gravity.START
     } else {
         input.inputType = inputType
     }

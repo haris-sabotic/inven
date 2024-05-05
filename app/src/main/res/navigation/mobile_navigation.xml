@@ -130,10 +130,18 @@
         android:id="@+id/navigation_ads_company"
         android:name="com.ets.inven.ui.company.ads.AdsCompanyFragment"
         tools:layout="@layout/fragment_ads_company">
+        <action
+            android:id="@+id/action_ads_company_to_new_ad"
+            app:destination="@id/navigation_new_ad" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_profile_company"
         android:name="com.ets.inven.ui.company.profile.ProfileCompanyFragment"
         tools:layout="@layout/fragment_profile_company" />
+
+    <fragment
+        android:id="@+id/navigation_new_ad"
+        android:name="com.ets.inven.ui.company.new_ad.NewAdFragment"
+        tools:layout="@layout/fragment_new_ad" />
 </navigation>

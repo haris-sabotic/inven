@@ -14,6 +14,7 @@ import okhttp3.Interceptor
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -87,4 +88,18 @@ interface ApiInterface {
 
     @GET("ads/{id}")
     fun singleAd(@Path("id") adId: Int): Call<AdModel>
+
+    @GET("user/ads")
+    fun userAds(@Header("Authorization") token: String, @Query("types") type: String?): Call<ArrayList<AdPreviewModel>>
+
+    @Multipart
+    @POST("user/ads")
+    fun createAd(
+        @Header("Authorization") token: String,
+        @Part("type") type: RequestBody,
+        @Part("name") name: RequestBody,
+        @Part("description") description: RequestBody,
+        @Part("max_available_positions") maxAvailablePositions: RequestBody,
+        @Part photo: MultipartBody.Part?
+    ): Call<Any>
 }

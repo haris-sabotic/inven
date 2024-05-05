@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.ets.inven.R
 import com.ets.inven.models.AdModel
 import com.ets.inven.models.AdPreviewModel
+import com.ets.inven.util.setPhoto
 import com.ets.inven.util.shorten
 
 class AdsIndividualRecyclerViewAdapter (
@@ -46,10 +47,7 @@ class AdsIndividualRecyclerViewAdapter (
         viewHolder.textName.text = ad.name
         viewHolder.textDescription.text = ad.description.shorten(105)
 
-        Glide.with(context)
-            .load(ad.photo)
-            .centerCrop()
-            .into(viewHolder.photo)
+        setPhoto(context, ad.photo, viewHolder.photo)
 
         viewHolder.root.setOnClickListener {
             onClickAction(ad)
