@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_register_two,
                 R.id.navigation_ad_details_individual,
                 R.id.navigation_company_details_individual,
+                R.id.navigation_ad_applications_company,
+                R.id.navigation_ad_application_details_company
                 -> {
                     navView.visibility = View.GONE
                 }

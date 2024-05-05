@@ -1,5 +1,7 @@
 package com.ets.inven.ui.company.profile
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +23,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.toRequestBody
+
 
 class ProfileCompanyFragment : Fragment() {
     val userViewModel: UserViewModel by activityViewModels()
@@ -65,6 +68,18 @@ class ProfileCompanyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.profileCompanyTextLogOut.setOnClickListener {
+            GlobalData.saveToken(requireContext(), null)
+
+            // restart
+            val ctx: Context = requireActivity().applicationContext
+            val pm = ctx.packageManager
+            val intent = pm.getLaunchIntentForPackage(ctx.packageName)
+            val mainIntent = Intent.makeRestartActivityTask(intent!!.component)
+            ctx.startActivity(mainIntent)
+            Runtime.getRuntime().exit(0)
+        }
 
         userViewModel.userData.observe(viewLifecycleOwner) { userData ->
             binding.profileCompanySwiperefresh.isRefreshing = false

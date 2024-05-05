@@ -2,11 +2,15 @@ package com.ets.inven.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class AdModel(
     val name: String,
     val description: String,
+
+    @SerializedName("positions_left")
     val freePositions: Int,
+
     val photo: String,
     val company: CompanyModel
 ) : Parcelable {

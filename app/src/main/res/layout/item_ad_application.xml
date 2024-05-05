@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_ad_application_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/card_background_15"
+    android:elevation="10dp"
+    android:clipToPadding="false"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_ad_application_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </de.hdodenhof.circleimageview.CircleImageView>
+
+    <TextView
+        android:id="@+id/item_ad_application_text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/TextBold"
+        android:text="IME PREZIME"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintStart_toEndOf="@id/item_ad_application_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_ad_application_text_about"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintStart_toEndOf="@id/item_ad_application_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_ad_application_text_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

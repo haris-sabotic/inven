@@ -121,11 +121,12 @@ class UserViewModel : ViewModel() {
         })
     }
 
-    fun editCV(token: String, cv: MultipartBody.Part) {
+    fun editCV(token: String, cv: MultipartBody.Part, onSuccess: () -> Unit) {
         Api.service.editUserCV("Bearer $token", cv).enqueue(object : Callback<EditResponse> {
             override fun onResponse(call: Call<EditResponse>, response: Response<EditResponse>) {
                 if (response.isSuccessful) {
                     _userData.postValue(response.body()!!.new_user)
+                    onSuccess()
                 } else {
                     val body = deserializeJson<ErrorResponse<Any>>(response.errorBody()!!.string())
                     _errorMessage.postValue(body.message)

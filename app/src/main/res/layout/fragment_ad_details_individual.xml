@@ -20,7 +20,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/TextMedium"
-                android:text="Ad name"
                 android:textAllCaps="true"
                 android:textSize="28sp"
                 android:textColor="@color/black"
@@ -51,7 +50,6 @@
                 android:id="@+id/ad_details_individual_text_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur a sapien eu porta. In ut quam metus. Fusce pretium sit amet nibh vitae vulputate. Nullam enim sem, iaculis ultricies ex vel, semper malesuada dolor. Mauris augue mi, finibus sit amet tristique id, tempus et sem. Aliquam et quam nec tellus dictum euismod. Nullam sem lacus, euismod vel odio non, eleifend faucibus elit."
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:justificationMode="inter_word"
@@ -91,7 +89,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextMedium"
-                    android:text="7"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toTopOf="@id/ad_details_individual_info_text_free_positions_label"
@@ -113,7 +110,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/TextMedium"
-                    android:text="VOLI d.o.o."
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toTopOf="@id/ad_details_individual_info_text_company_label"
@@ -121,6 +117,19 @@
                     app:layout_constraintStart_toEndOf="@id/ad_details_individual_info_text_company_label" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/ad_details_individual_button_apply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextBold"
+                android:enabled="false"
+                android:text="PRIJAVI SE"
+                android:textSize="20sp"
+                android:paddingTop="10dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/ad_details_individual_layout_info" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

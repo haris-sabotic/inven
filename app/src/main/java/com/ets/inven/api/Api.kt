@@ -3,6 +3,7 @@ package com.ets.inven.api
 import com.ets.inven.api.requests.EditUserRequest
 import com.ets.inven.api.requests.LoginRequest
 import com.ets.inven.api.requests.RegisterRequest
+import com.ets.inven.api.responses.AppliedResponse
 import com.ets.inven.api.responses.EditResponse
 import com.ets.inven.api.responses.LoginResponse
 import com.ets.inven.api.responses.RegisterResponse
@@ -102,4 +103,13 @@ interface ApiInterface {
         @Part("max_available_positions") maxAvailablePositions: RequestBody,
         @Part photo: MultipartBody.Part?
     ): Call<Any>
+
+    @GET("user/ads/{id}/applications")
+    fun adApplications(@Header("Authorization") token: String, @Path("id") id: Int): Call<ArrayList<UserModel>>
+
+    @POST("user/ads/{id}/apply")
+    fun adApply(@Header("Authorization") token: String, @Path("id") id: Int): Call<Any>
+
+    @GET("user/ads/{id}/applied")
+    fun adApplied(@Header("Authorization") token: String, @Path("id") id: Int): Call<AppliedResponse>
 }

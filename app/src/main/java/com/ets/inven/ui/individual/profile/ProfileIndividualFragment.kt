@@ -1,5 +1,7 @@
 package com.ets.inven.ui.individual.profile
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.view.LayoutInflater
@@ -7,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -63,7 +66,9 @@ class ProfileIndividualFragment : Fragment() {
                             )
                     )
 
-                userViewModel.editCV(GlobalData.getToken()!!, cv)
+                userViewModel.editCV(GlobalData.getToken()!!, cv) {
+                    Toast.makeText(requireContext(), "CV ažuriran.", Toast.LENGTH_SHORT).show()
+                }
             }
             binding.profileIndividualSwiperefresh.isRefreshing = true
         }
@@ -88,6 +93,18 @@ class ProfileIndividualFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.profileIndividualTextLogOut.setOnClickListener {
+            GlobalData.saveToken(requireContext(), null)
+
+            // restart
+            val ctx: Context = requireActivity().applicationContext
+            val pm = ctx.packageManager
+            val intent = pm.getLaunchIntentForPackage(ctx.packageName)
+            val mainIntent = Intent.makeRestartActivityTask(intent!!.component)
+            ctx.startActivity(mainIntent)
+            Runtime.getRuntime().exit(0)
+        }
+
         userViewModel.userData.observe(viewLifecycleOwner) { userData ->
             binding.profileIndividualSwiperefresh.isRefreshing = false
 
@@ -98,6 +115,12 @@ class ProfileIndividualFragment : Fragment() {
             binding.profileIndividualTextEmail.text = userData.email
             binding.profileIndividualTextAbout.text = userData.about
             setPhoto(requireContext(), userData.photo, binding.profileIndividualCircleimage)
+        }
+
+        userViewModel.errorMessage.observe(viewLifecycleOwner) {
+            binding.profileIndividualSwiperefresh.isRefreshing = false
+
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
         }
 
         binding.profileIndividualSwiperefresh.setOnRefreshListener {

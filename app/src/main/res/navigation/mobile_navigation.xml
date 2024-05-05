@@ -133,6 +133,9 @@
         <action
             android:id="@+id/action_ads_company_to_new_ad"
             app:destination="@id/navigation_new_ad" />
+        <action
+            android:id="@+id/action_ads_company_to_ad_applications_company"
+            app:destination="@id/navigation_ad_applications_company" />
     </fragment>
 
     <fragment
@@ -144,4 +147,26 @@
         android:id="@+id/navigation_new_ad"
         android:name="com.ets.inven.ui.company.new_ad.NewAdFragment"
         tools:layout="@layout/fragment_new_ad" />
+
+    <fragment
+        android:id="@+id/navigation_ad_applications_company"
+        android:name="com.ets.inven.ui.company.ad_applications.AdApplicationsCompanyFragment"
+        tools:layout="@layout/fragment_ad_applications_company">
+        <argument
+            android:name="ad"
+            app:argType="com.ets.inven.models.AdPreviewModel" />
+        <action
+            android:id="@+id/action_ad_applications_company_to_ad_application_details_company"
+            app:destination="@id/navigation_ad_application_details_company" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_ad_application_details_company"
+        android:name="com.ets.inven.ui.company.ad_application_details.AdApplicationDetailsCompanyFragment"
+        tools:layout="@layout/fragment_ad_application_details_company">
+        <argument
+            android:name="application"
+            app:argType="com.ets.inven.models.UserModel" />
+    </fragment>
 </navigation>

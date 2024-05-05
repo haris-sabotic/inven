@@ -34,7 +34,7 @@ object GlobalData {
         } else {
             editor.putString("token", value)
         }
-        editor.apply()
+        editor.commit()
     }
 
     fun setToken(value: String?) {

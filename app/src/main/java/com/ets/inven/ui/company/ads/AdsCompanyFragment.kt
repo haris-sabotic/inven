@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -58,6 +59,12 @@ class AdsCompanyFragment : Fragment() {
             loadAds()
         }
 
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
+            binding.adsCompanySwiperefresh.isRefreshing = false
+
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+
         viewModel.ads.observe(viewLifecycleOwner) {
             binding.adsCompanySwiperefresh.isRefreshing = false
 
@@ -69,9 +76,9 @@ class AdsCompanyFragment : Fragment() {
 
         binding.adsCompanyRecyclerview.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.adsCompanyRecyclerview.adapter = AdsIndividualRecyclerViewAdapter(requireContext(), ads) { ad ->
-            // val action = AdsIndividualFragmentDirections.actionAdsIndividualToAdDetailsIndividual(ad.id)
+            val action = AdsCompanyFragmentDirections.actionAdsCompanyToAdApplicationsCompany(ad)
 
-            // findNavController().navigate(action)
+            findNavController().navigate(action)
         }
 
         binding.adsCompanyFab.setOnClickListener {

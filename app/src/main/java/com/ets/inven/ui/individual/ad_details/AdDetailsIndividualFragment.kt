@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.ets.inven.databinding.FragmentAdDetailsIndividualBinding
+import com.ets.inven.util.GlobalData
+import com.ets.inven.util.setPhoto
 
 class AdDetailsIndividualFragment : Fragment() {
     private val viewModel: AdDetailsIndividualViewModel by viewModels()
@@ -36,10 +39,29 @@ class AdDetailsIndividualFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadAd(args.adId)
+        viewModel.adApplied(GlobalData.getToken()!!, args.adId)
         binding.adDetailsIndividualSwipeRefresh.isRefreshing = true
 
         binding.adDetailsIndividualSwipeRefresh.setOnRefreshListener {
             viewModel.loadAd(args.adId)
+        }
+
+        binding.adDetailsIndividualButtonApply.setOnClickListener {
+            binding.adDetailsIndividualSwipeRefresh.isRefreshing = true
+
+            viewModel.adApply(GlobalData.getToken()!!, args.adId)
+        }
+
+        viewModel.errorMessage.observe(viewLifecycleOwner) {
+            binding.adDetailsIndividualSwipeRefresh.isRefreshing = false
+
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.applied.observe(viewLifecycleOwner) {
+            binding.adDetailsIndividualSwipeRefresh.isRefreshing = false
+
+            binding.adDetailsIndividualButtonApply.isEnabled = !it
         }
 
         viewModel.ad.observe(viewLifecycleOwner) { ad ->
@@ -50,10 +72,7 @@ class AdDetailsIndividualFragment : Fragment() {
             binding.adDetailsIndividualInfoTextFreePositions.text = ad.freePositions.toString()
             binding.adDetailsIndividualInfoTextCompany.text = ad.company.name
 
-            Glide.with(requireContext())
-                .load(ad.photo)
-                .centerCrop()
-                .into(binding.adDetailsIndividualImage)
+            setPhoto(requireContext(), ad.photo, binding.adDetailsIndividualImage)
 
             binding.adDetailsIndividualInfoTextCompany.setOnClickListener {
                 val action =
