@@ -45,6 +45,6 @@ object GlobalData {
         return _token
     }
 
-    val API_PREFIX = "http://192.168.1.55:8000/api/"
-    val STORAGE_PREFIX = "http://192.168.1.55:8000/storage/"
+    val API_PREFIX = "http://84.247.177.105:8001/api/"
+    val STORAGE_PREFIX = "http://84.247.177.105:8001/storage/"
 }
