@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_ad_details_individual,
                 R.id.navigation_company_details_individual,
                 R.id.navigation_ad_applications_company,
-                R.id.navigation_ad_application_details_company
+                R.id.navigation_ad_application_details_company,
+                R.id.navigation_chat_individual,
                 -> {
                     navView.visibility = View.GONE
                 }

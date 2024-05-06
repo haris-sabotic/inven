@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/message_background"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="100dp"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="20dp">
+
+    <TextView
+        android:id="@+id/item_chat_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum tristique bibendum. Proin efficitur magna nec ornare volutpat. Ut aliquam, lorem eu viverra faucibus, mauris neque pulvinar purus, nec scelerisque ipsum massa vel mauris. Aliquam mattis id lacus a iaculis. Nullam ut varius neque, non porttitor neque."
+        android:textColor="@color/black"
+        />
+
+</FrameLayout>

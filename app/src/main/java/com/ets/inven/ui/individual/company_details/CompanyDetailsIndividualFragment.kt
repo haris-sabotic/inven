@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.ets.inven.databinding.FragmentCompanyDetailsIndividualBinding
@@ -42,6 +43,12 @@ class CompanyDetailsIndividualFragment : Fragment() {
         binding.companyDetailsIndividualTextAbout.text = company.about
 
         setPhoto(requireContext(), company.photo, binding.companyDetailsIndividualImage)
+
+        binding.companyDetailsIndividualLayoutChat.setOnClickListener {
+            val action = CompanyDetailsIndividualFragmentDirections.actionCompanyDetailsIndividualToChatIndividual(company)
+
+            findNavController().navigate(action)
+        }
 
         binding.companyDetailsIndividualLayoutEmail.setOnClickListener {
             val subject = ""

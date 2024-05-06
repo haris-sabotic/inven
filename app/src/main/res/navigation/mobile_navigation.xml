@@ -122,6 +122,18 @@
         <argument
             android:name="companyData"
             app:argType="com.ets.inven.models.CompanyModel" />
+        <action
+            android:id="@+id/action_company_details_individual_to_chat_individual"
+            app:destination="@id/navigation_chat_individual" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_chat_individual"
+        android:name="com.ets.inven.ui.individual.chat.ChatIndividualFragment"
+        tools:layout="@layout/fragment_chat_individual">
+        <argument
+            android:name="companyData"
+            app:argType="com.ets.inven.models.CompanyModel" />
     </fragment>
 
     <!-- COMPANY -->
